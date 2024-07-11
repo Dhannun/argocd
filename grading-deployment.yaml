@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.34.0 (HEAD)
+  labels:
+    io.kompose.service: grading
+  name: grading
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: grading
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.34.0 (HEAD)
+      labels:
+        io.kompose.service: grading
+    spec:
+      containers:
+        - env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: grading-secret
+                  key: DB_PASSWORD
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: grading-secret
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: grading-secret
+                  key: DB_USERNAME
+            - name: JWT_EXPIRY
+              valueFrom:
+                configMapKeyRef:
+                  key: JWT_EXPIRY
+                  name: env
+            - name: JWT_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: grading-secret
+                  key: JWT_SECRET_KEY
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: PORT
+                  name: env
+            - name: REFRESH_TOKEN_EXPIRY
+              valueFrom:
+                configMapKeyRef:
+                  key: REFRESH_TOKEN_EXPIRY
+                  name: env
+          image: dhannun/apis:grading-v1.0.0-29
+          name: sinnts-grading
+          ports:
+            - containerPort: 2024
+              protocol: TCP
+      restartPolicy: Always

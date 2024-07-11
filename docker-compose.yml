@@ -1,0 +1,17 @@
+services:
+  grading:
+    image: dhannun/apis:grading-v1.0.0-29
+    container_name: sinnts-grading
+    env_file:
+      - .env
+    environment:
+      DB_URL: $DB_URL
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+      JWT_EXPIRY: $JWT_EXPIRY
+      JWT_SECRET_KEY: $JWT_SECRET_KEY
+      PORT: $PORT
+      REFRESH_TOKEN_EXPIRY: $REFRESH_TOKEN_EXPIRY
+    ports:
+    - 80:2024
+    restart: always
