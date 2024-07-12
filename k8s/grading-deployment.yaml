@@ -8,7 +8,7 @@ metadata:
     io.kompose.service: grading
   name: grading
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       io.kompose.service: grading
