@@ -12,6 +12,8 @@ spec:
       labels:
         app: sinnts-grading
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: sinnts-grading
           image: dhannun/apps:grading-v1.0.0-35
