@@ -2,8 +2,6 @@ services:
   grading:
     image: dhannun/apis:grading-v1.0.0-29
     container_name: sinnts-grading
-    env_file:
-      - .env
     environment:
       DB_URL: $DB_URL
       DB_USERNAME: $DB_USERNAME
