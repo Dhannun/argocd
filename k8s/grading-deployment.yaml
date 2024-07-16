@@ -57,7 +57,7 @@ spec:
                 configMapKeyRef:
                   key: REFRESH_TOKEN_EXPIRY
                   name: env
-          image: dhannun/apis:grading-v1.0.0-29
+          image: dhannun/apps:grading-v1.0.0-35
           name: sinnts-grading
           ports:
             - containerPort: 2024
