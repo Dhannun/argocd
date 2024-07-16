@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grading-config
+  namespace: staging
 data:
   DB_USERNAME: "postgres"
   JWT_EXPIRY: "172800000"

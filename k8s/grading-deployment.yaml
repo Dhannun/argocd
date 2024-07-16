@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sinnts-grading
+  namespace: staging
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: sinnts-grading
