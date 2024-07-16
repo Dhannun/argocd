@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: sinnts-grading
-  namespace: staging
+  namespace: dev
 spec:
+  type: ClusterIP
   selector:
     app: sinnts-grading
   ports:
     - protocol: TCP
       port: 80
       targetPort: 2024
-  type: ClusterIP

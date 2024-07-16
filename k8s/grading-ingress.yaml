@@ -2,18 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: grading-ingress
-  namespace: staging
+  namespace: dev
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
-  tls:
-    - hosts:
-        - api.touchit.com.ng
-      secretName: grading-tls
+  ingressClassName: nginx
   rules:
-    - host: api.touchit.com.ng
+    - host: dev.touchit.com.ng
       http:
         paths:
           - path: /

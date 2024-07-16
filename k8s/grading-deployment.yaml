@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sinnts-grading
-  namespace: staging
+  name: sinnts-grading-deployment
+  namespace: dev
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - name: sinnts-grading
+        - name: sinnts-grading-container
           image: dhannun/apps:grading-v1.0.0-52
           ports:
             - containerPort: 2024
