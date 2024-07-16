@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grading-cert
+spec:
+  secretName: grading-tls
+  dnsNames:
+    - dev.touchit.com.ng
+  issuerRef:
+    name: letsencrypt-issuer
+    kind: ClusterIssuer

@@ -6,6 +6,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+    - hosts:
+        - dev.touchit.com.ng
+      secretName: grading-tls
   ingressClassName: nginx
   rules:
     - host: dev.touchit.com.ng
