@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: sinnts-grading
   namespace: dev
+  labels:
+    app: grading
 spec:
   type: ClusterIP
   selector:
-    app: sinnts-grading
+    app: grading
   ports:
     - protocol: TCP
       port: 80
