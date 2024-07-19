@@ -58,13 +58,13 @@ spec:
                   key: REFRESH_TOKEN_EXPIRY
           livenessProbe:
             httpGet:
-              path: /api/v1/ping
+              path: /
               port: 2024
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /api/v1/ping
+              path: /
               port: 2024
             initialDelaySeconds: 30
             periodSeconds: 10
