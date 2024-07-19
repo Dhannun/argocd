@@ -17,7 +17,7 @@ spec:
         - name: regcred
       containers:
         - name: sinnts-grading
-          image: dhannun/apps:grading-v1.0.0-52
+          image: dhannun/apps:grading-v1.0.0-53
           ports:
             - containerPort: 2024
           env:
